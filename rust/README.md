@@ -1,4 +1,4 @@
-# E-Commerce Backend — Rust
+# E-Commerce Backend - Rust
 
 A production-grade e-commerce REST API built with **Rust + axum + sqlx**. One of
 three independent implementations of the same contract (see the
@@ -7,22 +7,22 @@ comparison).
 
 ## Highlights
 
-- **Auth** — registration, login, **Argon2id** password hashing, JWT **access +
+- **Auth** - registration, login, **Argon2id** password hashing, JWT **access +
   refresh tokens with rotation & reuse detection**, **RBAC** (roles → permissions).
-- **Catalog** — product/category CRUD, **Postgres full-text search**, **keyset
+- **Catalog** - product/category CRUD, **Postgres full-text search**, **keyset
   (cursor) pagination**, **Redis** read-through caching with event-style invalidation.
-- **Cart** — durable per-user cart, add/update/remove/clear.
-- **Orders** — checkout as a **single ACID transaction** with `SELECT … FOR UPDATE`
+- **Cart** - durable per-user cart, add/update/remove/clear.
+- **Orders** - checkout as a **single ACID transaction** with `SELECT … FOR UPDATE`
   row locking (no oversell), price snapshotting, and **stock-restoring cancellation**.
-- **Cross-cutting** — RFC 7807 `problem+json` errors, request-id propagation,
+- **Cross-cutting** - RFC 7807 `problem+json` errors, request-id propagation,
   Prometheus `/metrics`, structured JSON logs, CORS, gzip, timeouts, panic
   recovery, graceful shutdown, embedded SQL migrations, and a multi-stage
   cargo-chef Docker build.
 
-## Architecture — modular monolith
+## Architecture - modular monolith
 
 Clear bounded modules over one PostgreSQL database. Because everything shares a
-transaction boundary, checkout needs no distributed saga — it is one atomic
+transaction boundary, checkout needs no distributed saga - it is one atomic
 transaction, which is both simpler and stronger than eventual consistency.
 
 ```
@@ -49,7 +49,7 @@ src/
 | DB | PostgreSQL via sqlx 0.8 (compile-free runtime queries, pooled) |
 | Cache | Redis (optional; degrades gracefully) |
 | Auth | jsonwebtoken (HS256) + argon2 |
-| Money | integer cents (`i64`) — never floats |
+| Money | integer cents (`i64`) - never floats |
 | Observability | tracing (JSON logs) + metrics + Prometheus exporter |
 
 ## Running

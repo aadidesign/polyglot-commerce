@@ -1,4 +1,4 @@
-//! `common` — internal infrastructure crate for the Rust e-commerce backend.
+//! `common` - internal infrastructure crate for the Rust e-commerce backend.
 //!
 //! It deliberately contains no business logic; it is the small framework the
 //! application (`server`) builds on, so the domain code stays focused.

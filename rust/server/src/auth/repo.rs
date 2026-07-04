@@ -138,7 +138,7 @@ where
     Ok(())
 }
 
-/// Revoke every token in a family — the response to refresh-token reuse.
+/// Revoke every token in a family - the response to refresh-token reuse.
 pub async fn revoke_family<'e, E>(exec: E, family: Uuid) -> Result<(), sqlx::Error>
 where
     E: Executor<'e, Database = Postgres>,

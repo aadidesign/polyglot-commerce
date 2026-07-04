@@ -1,6 +1,6 @@
 //! Order data access. Checkout is a single ACID transaction that locks the
 //! relevant product rows (`SELECT ... FOR UPDATE`), verifies stock, decrements
-//! it, snapshots line prices, and clears the cart — so there is no oversell and
+//! it, snapshots line prices, and clears the cart - so there is no oversell and
 //! no need for a distributed saga. Cancellation compensates by restocking.
 
 use chrono::{DateTime, Utc};

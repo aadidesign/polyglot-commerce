@@ -1,4 +1,4 @@
-# E-Commerce Backend — Go
+# E-Commerce Backend - Go
 
 A production-grade e-commerce REST API built with **Go + chi + pgx**. One of
 three independent implementations of the same contract (see the
@@ -6,14 +6,14 @@ three independent implementations of the same contract (see the
 
 ## Highlights
 
-- **Auth** — registration, login, **Argon2id** hashing (`x/crypto/argon2`),
+- **Auth** - registration, login, **Argon2id** hashing (`x/crypto/argon2`),
   JWT **access + refresh tokens with rotation & reuse detection**, **RBAC**.
-- **Catalog** — product/category CRUD, **Postgres full-text search**, **keyset
+- **Catalog** - product/category CRUD, **Postgres full-text search**, **keyset
   (cursor) pagination**, optional **Redis** read-through caching.
-- **Cart** — durable per-user cart.
-- **Orders** — checkout as a **single ACID transaction** with `SELECT … FOR
+- **Cart** - durable per-user cart.
+- **Orders** - checkout as a **single ACID transaction** with `SELECT … FOR
   UPDATE` row locking (no oversell), price snapshotting, restock-on-cancel.
-- **Cross-cutting** — RFC 7807 `problem+json` errors, request-id propagation,
+- **Cross-cutting** - RFC 7807 `problem+json` errors, request-id propagation,
   `log/slog` structured logs, **Prometheus** `/metrics`, CORS, panic recovery,
   graceful shutdown, embedded SQL migrations, distroless Docker image.
 
@@ -56,7 +56,7 @@ go run ./cmd/server
 
 ## API
 
-Identical contract to the other implementations — see the
+Identical contract to the other implementations - see the
 [OpenAPI spec](../api/openapi.yaml) and the endpoint table in the
 [root README](../README.md). Base URL `http://localhost:8080`.
 

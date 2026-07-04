@@ -39,7 +39,7 @@ where
         .layer(stack)
 }
 
-/// Liveness probe — the process is running. Cheap and dependency-free.
+/// Liveness probe - the process is running. Cheap and dependency-free.
 pub async fn liveness() -> &'static str {
     "ok"
 }

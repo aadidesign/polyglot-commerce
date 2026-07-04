@@ -23,7 +23,7 @@ use crate::state::Inner;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    // `ecommerce healthcheck` — used by the Docker HEALTHCHECK.
+    // `ecommerce healthcheck` - used by the Docker HEALTHCHECK.
     if std::env::args().nth(1).as_deref() == Some("healthcheck") {
         let port: u16 = env::parse_or("PORT", 8080);
         tokio::net::TcpStream::connect(("127.0.0.1", port)).await?;

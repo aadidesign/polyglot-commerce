@@ -1,4 +1,4 @@
-# E-Commerce Backend — Python
+# E-Commerce Backend - Python
 
 A production-grade e-commerce REST API built with **FastAPI + asyncpg**. One of
 three independent implementations of the same contract (see the
@@ -6,15 +6,15 @@ three independent implementations of the same contract (see the
 
 ## Highlights
 
-- **Auth** — registration, login, **Argon2id** hashing (`argon2-cffi`), JWT
+- **Auth** - registration, login, **Argon2id** hashing (`argon2-cffi`), JWT
   **access + refresh tokens with rotation & reuse detection** (PyJWT), **RBAC**
   via dependency injection.
-- **Catalog** — product/category CRUD, **Postgres full-text search**, **keyset
+- **Catalog** - product/category CRUD, **Postgres full-text search**, **keyset
   (cursor) pagination**, optional **Redis** read-through caching.
-- **Cart** — durable per-user cart.
-- **Orders** — checkout as a **single ACID transaction** with `SELECT … FOR
+- **Cart** - durable per-user cart.
+- **Orders** - checkout as a **single ACID transaction** with `SELECT … FOR
   UPDATE` row locking (no oversell), price snapshotting, restock-on-cancel.
-- **Cross-cutting** — RFC 7807 `problem+json` errors via exception handlers,
+- **Cross-cutting** - RFC 7807 `problem+json` errors via exception handlers,
   Pydantic request validation, structured JSON logging, **Prometheus**
   `/metrics`, CORS, async lifespan management, embedded SQL migrator.
 
@@ -58,7 +58,7 @@ Interactive API docs are served at **`/docs`** (Swagger UI) and **`/redoc`**.
 
 ## API
 
-Identical contract to the other implementations — see the
+Identical contract to the other implementations - see the
 [OpenAPI spec](../api/openapi.yaml) and the endpoint table in the
 [root README](../README.md). Base URL `http://localhost:8080`.
 

@@ -116,7 +116,7 @@ async def refresh(body: RefreshRequest, pool=Depends(get_pool), jwt_mgr=Depends(
         if rec is None or rec["revoked"]:
             raise unauthorized()
         if rec["used"]:
-            # Reuse detected — revoke the whole family.
+            # Reuse detected - revoke the whole family.
             await conn.execute("UPDATE refresh_tokens SET revoked = TRUE WHERE family = $1", family)
             raise unauthorized()
         async with conn.transaction():
@@ -131,7 +131,7 @@ async def logout(body: LogoutRequest, pool=Depends(get_pool), jwt_mgr=Depends(ge
         family = uuid.UUID(claims["family"])
         async with pool.acquire() as conn:
             await conn.execute("UPDATE refresh_tokens SET revoked = TRUE WHERE family = $1", family)
-    except Exception:  # noqa: BLE001 — idempotent logout never leaks token validity
+    except Exception:  # noqa: BLE001 - idempotent logout never leaks token validity
         pass
     return None
 

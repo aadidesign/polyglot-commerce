@@ -170,7 +170,7 @@ func (h *Handlers) Refresh(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if rec.Used {
-		// Reuse detected — revoke the whole family.
+		// Reuse detected - revoke the whole family.
 		_ = RevokeFamily(ctx, h.Pool, family)
 		httpx.Error(w, r, httpx.Unauthorized())
 		return

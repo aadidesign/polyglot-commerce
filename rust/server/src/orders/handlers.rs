@@ -13,7 +13,7 @@ use super::models::*;
 use super::repo;
 use crate::state::AppState;
 
-/// POST /v1/orders — checkout the current cart.
+/// POST /v1/orders - checkout the current cart.
 pub async fn checkout(
     State(st): State<AppState>,
     user: AuthUser,
@@ -28,7 +28,7 @@ pub async fn checkout(
     ))
 }
 
-/// GET /v1/orders — keyset-paginated list of the user's orders.
+/// GET /v1/orders - keyset-paginated list of the user's orders.
 pub async fn list_orders(
     State(st): State<AppState>,
     user: AuthUser,

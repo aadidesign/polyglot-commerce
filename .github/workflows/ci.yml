@@ -7,7 +7,7 @@ on:
 
 jobs:
   rust:
-    name: Rust — fmt, clippy, test
+    name: Rust - fmt, clippy, test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -25,7 +25,7 @@ jobs:
       - run: cargo test --workspace
 
   go:
-    name: Go — vet, build, test
+    name: Go - vet, build, test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,7 +41,7 @@ jobs:
       - run: go test ./...
 
   python:
-    name: Python — ruff, pytest
+    name: Python - ruff, pytest
     runs-on: ubuntu-latest
     defaults:
       run:

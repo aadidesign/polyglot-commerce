@@ -11,7 +11,7 @@ pub fn load_dotenv() {
     let _ = dotenvy::dotenv();
 }
 
-/// Required variable — returns an error naming the key if missing.
+/// Required variable - returns an error naming the key if missing.
 pub fn required(key: &str) -> anyhow::Result<String> {
     std::env::var(key).map_err(|_| anyhow::anyhow!("missing required env var: {key}"))
 }
