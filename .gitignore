@@ -1,0 +1,47 @@
+# ---- Rust ----
+/target
+**/target
+**/*.rs.bk
+Cargo.lock.orig
+
+# ---- Go ----
+/bin
+*.exe
+*.exe~
+*.test
+*.out
+go.work.sum
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# ---- Env & secrets ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ---- Editors / OS ----
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# ---- Data & logs ----
+*.log
+/data
+**/data/
+coverage/
+*.coverage

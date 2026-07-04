@@ -1,0 +1,51 @@
+# Self-contained stack for the Python backend: Postgres + Redis + the API.
+#   docker compose up -d --build
+name: ecommerce-python
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ecom
+      POSTGRES_PASSWORD: ecom_dev_password
+      POSTGRES_DB: ecommerce
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ecom -d ecommerce"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    ports: ["6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      LOG_FORMAT: json
+      PORT: 8080
+      DATABASE_URL: postgresql://ecom:ecom_dev_password@postgres:5432/ecommerce
+      REDIS_URL: redis://redis:6379
+      JWT_ACCESS_SECRET: dev-access-secret-change-me-in-prod-0123
+      JWT_REFRESH_SECRET: dev-refresh-secret-change-me-in-prod-456
+      JWT_ACCESS_TTL_SECS: 900
+      JWT_REFRESH_TTL_SECS: 2592000
+      JWT_ISSUER: ecommerce.python
+      JWT_AUDIENCE: ecommerce.api
+    ports: ["8080:8080"]
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+
+volumes:
+  pgdata:
