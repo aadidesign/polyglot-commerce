@@ -1,4 +1,4 @@
-# 🐍 E-Commerce Backend — Python
+# E-Commerce Backend — Python
 
 A production-grade e-commerce REST API built with **FastAPI + asyncpg**. One of
 three independent implementations of the same contract (see the

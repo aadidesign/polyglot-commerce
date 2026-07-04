@@ -1,4 +1,4 @@
-# 🦀 E-Commerce Backend — Rust
+# E-Commerce Backend — Rust
 
 A production-grade e-commerce REST API built with **Rust + axum + sqlx**. One of
 three independent implementations of the same contract (see the
@@ -82,7 +82,7 @@ Base URL `http://localhost:8080`. All bodies are JSON. Errors are
 | POST | `/v1/auth/login` | – | Exchange credentials for tokens |
 | POST | `/v1/auth/refresh` | – | Rotate refresh token (reuse → family revoked) |
 | POST | `/v1/auth/logout` | – | Revoke a refresh-token family |
-| GET | `/v1/auth/me` | ✅ | Current user profile |
+| GET | `/v1/auth/me` | Yes | Current user profile |
 | GET | `/v1/products` | – | List (paginated, `?q=`, `?category_id=`, `?cursor=`) |
 | GET | `/v1/products/{id}` | – | Get one (cached) |
 | POST | `/v1/products` | admin | Create |
@@ -90,15 +90,15 @@ Base URL `http://localhost:8080`. All bodies are JSON. Errors are
 | DELETE | `/v1/products/{id}` | admin | Archive (soft delete) |
 | GET | `/v1/categories` | – | List categories |
 | POST | `/v1/categories` | admin | Create category |
-| GET | `/v1/cart` | ✅ | Get cart |
-| POST | `/v1/cart/items` | ✅ | Add item `{product_id, quantity}` |
-| PATCH | `/v1/cart/items/{product_id}` | ✅ | Set quantity |
-| DELETE | `/v1/cart/items/{product_id}` | ✅ | Remove line |
-| DELETE | `/v1/cart` | ✅ | Clear cart |
-| POST | `/v1/orders` | ✅ | Checkout cart → order |
-| GET | `/v1/orders` | ✅ | List my orders (paginated) |
-| GET | `/v1/orders/{id}` | ✅ | Order detail |
-| POST | `/v1/orders/{id}/cancel` | ✅ | Cancel + restock |
+| GET | `/v1/cart` | Yes | Get cart |
+| POST | `/v1/cart/items` | Yes | Add item `{product_id, quantity}` |
+| PATCH | `/v1/cart/items/{product_id}` | Yes | Set quantity |
+| DELETE | `/v1/cart/items/{product_id}` | Yes | Remove line |
+| DELETE | `/v1/cart` | Yes | Clear cart |
+| POST | `/v1/orders` | Yes | Checkout cart → order |
+| GET | `/v1/orders` | Yes | List my orders (paginated) |
+| GET | `/v1/orders/{id}` | Yes | Order detail |
+| POST | `/v1/orders/{id}/cancel` | Yes | Cancel + restock |
 | GET | `/healthz` `/readyz` `/metrics` | – | Liveness / readiness / Prometheus |
 
 ### Example flow

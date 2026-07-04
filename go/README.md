@@ -1,4 +1,4 @@
-# 🐹 E-Commerce Backend — Go
+# E-Commerce Backend — Go
 
 A production-grade e-commerce REST API built with **Go + chi + pgx**. One of
 three independent implementations of the same contract (see the

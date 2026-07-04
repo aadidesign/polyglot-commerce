@@ -1,4 +1,4 @@
-# E-Commerce Backend — One API, Three Languages 🦀 🐹 🐍
+# E-Commerce Backend — One API, Three Languages
 
 A production-grade **e-commerce REST API** — authentication, product catalog,
 cart, and orders — implemented **three independent times**, once each in
@@ -60,7 +60,7 @@ informed this choice — the right tool depends on whether data is co-located.)
 
 ## Implementation matrix
 
-| Concern | 🦀 Rust | 🐹 Go | 🐍 Python |
+| Concern | Rust | Go | Python |
 |---|---|---|---|
 | HTTP framework | axum 0.8 + tower | go-chi/chi v5 | FastAPI (ASGI) |
 | DB driver | sqlx 0.8 (pooled) | jackc/pgx v5 | asyncpg |
@@ -113,17 +113,17 @@ The authoritative contract is [`api/openapi.yaml`](api/openapi.yaml) (OpenAPI 3.
 | POST | `/v1/auth/login` | – | Credentials → tokens |
 | POST | `/v1/auth/refresh` | – | Rotate refresh token (reuse → family revoked) |
 | POST | `/v1/auth/logout` | – | Revoke a refresh-token family |
-| GET | `/v1/auth/me` | ✅ | Current user |
+| GET | `/v1/auth/me` | Yes | Current user |
 | GET | `/v1/products` | – | List — `?q=`, `?category_id=`, `?cursor=`, `?limit=` |
 | GET | `/v1/products/{id}` | – | Get one (cached) |
 | POST·PATCH·DELETE | `/v1/products[/{id}]` | admin | Create / update / archive |
 | GET·POST | `/v1/categories` | – / admin | List / create |
-| GET·DELETE | `/v1/cart` | ✅ | Get / clear cart |
-| POST | `/v1/cart/items` | ✅ | Add item |
-| PATCH·DELETE | `/v1/cart/items/{product_id}` | ✅ | Set qty / remove |
-| POST·GET | `/v1/orders` | ✅ | Checkout / list orders |
-| GET | `/v1/orders/{id}` | ✅ | Order detail |
-| POST | `/v1/orders/{id}/cancel` | ✅ | Cancel + restock |
+| GET·DELETE | `/v1/cart` | Yes | Get / clear cart |
+| POST | `/v1/cart/items` | Yes | Add item |
+| PATCH·DELETE | `/v1/cart/items/{product_id}` | Yes | Set qty / remove |
+| POST·GET | `/v1/orders` | Yes | Checkout / list orders |
+| GET | `/v1/orders/{id}` | Yes | Order detail |
+| POST | `/v1/orders/{id}/cancel` | Yes | Cancel + restock |
 | GET | `/healthz` · `/readyz` · `/metrics` | – | Ops endpoints |
 
 The `admin` role and its permissions are seeded; the default registration grants
